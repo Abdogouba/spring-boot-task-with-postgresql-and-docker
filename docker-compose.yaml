@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - FIRST_NAME=abdalla
+      - LAST_NAME=mahgoub
+      - STUDENT_ID=52_3297
+      - APP_PORT=3297
+    ports:
+      - "3297:3297"
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: abdalla_52_3297
+    ports:
+      - "5432:5432"
